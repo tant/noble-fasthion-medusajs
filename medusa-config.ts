@@ -16,7 +16,10 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
-    workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
+    workerMode: process.env.MEDUSA_WORKER_MODE as
+      | "shared"
+      | "worker"
+      | "server",
   },
   modules: [
     {
@@ -53,10 +56,8 @@ module.exports = defineConfig({
               region: process.env.S3_REGION,
               bucket: process.env.S3_BUCKET,
               endpoint: process.env.S3_ENDPOINT,
-              options: {
-                additional_client_config: {
-                  forcePathStyle: true,
-                },
+              additional_client_config: {
+                forcePathStyle: true,
               },
             },
           },
